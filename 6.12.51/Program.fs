@@ -41,5 +41,5 @@ let main argv =
     let k= newL1 l
     Program.writeList k
     printfn" L2 "
-    newL2 l k|>Program.writeList
+    newL2 l k|>Program.writeList|>ignore
     0 // return an integer exit code
