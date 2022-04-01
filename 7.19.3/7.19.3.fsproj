@@ -10,4 +10,8 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\7.18\7.18.fsproj" />
+  </ItemGroup>
+
 </Project>
