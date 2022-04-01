@@ -83,16 +83,24 @@ let readArray n=
        let newn=n-1
        read newn newCand
     read n Array.empty
+let otvet n=
+    match n with
+    |1-> let (s:string) = Console.ReadLine()
+         Console.WriteLine (perWords s)
+    |2 ->let (s:string) = Console.ReadLine()
+         Console.WriteLine (evenWordsCount s)
+    |3-> let s=readArray 3
+         printfn "%A" (Rus s)
+    |_-> Console.WriteLine(0)
 
 [<EntryPoint>]
 let main argv =
-    printf "Введите строку, которую хотите перемешать"
-    let (s:string) = Console.ReadLine()
-    Console.WriteLine (intostring(random s))
-    printf "Количество слов с чётным количеством букв"
-    Console.WriteLine (evenWordsCount s)
-    let arr = readArray 3 
-    printfn "%A" (Rus arr)
+    Console.WriteLine("Выберите функцию:")
+    Console.WriteLine("1. Перемешать слова в строке")
+    Console.WriteLine("2. Количество слов с чётным количеством букв") 
+    Console.WriteLine("3.Отсортировать цвета в российский флаг")
+    let n = int(Console.ReadLine())
+    otvet n 
     0 // return an integer exit code
  
 
