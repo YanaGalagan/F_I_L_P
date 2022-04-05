@@ -59,7 +59,18 @@ let firstTask strings =
     let SortedStrings = List.sortBy (fun x -> (Difference x alphabet) ) PlusSymbol
     writeStringList (List.map (fun x-> fst x )SortedStrings)
 
+//перевод в аски код
+let inline charToInt c = int c - int '0'
 
+let getAverageAsciiWeight string = 
+    let AverageAscii = List.average (List.map (fun x-> Convert.ToDouble (charToInt x)) (Seq.toList string))
+    AverageAscii
+
+let secondTask (strings:'string list) =
+    let firstStringWeight = getAverageAsciiWeight strings.Head
+    Console.WriteLine strings.Head
+    let sortedS = List.sortBy (fun x-> pown ((getAverageAsciiWeight x) - firstStringWeight) 2) strings.Tail
+    writeStringList (sortedS)
 
 
 [<EntryPoint>]
@@ -68,5 +79,5 @@ let main argv =
     let n = Console.ReadLine() |> Int32.Parse
     let strings = readStrings n []
     firstTask strings
-    
+    secondTask strings
     0  // return an integer exit code
